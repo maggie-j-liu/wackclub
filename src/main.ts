@@ -26,6 +26,13 @@ serve(async (req) => {
             }
           );
           buffer = buffer.replace(
+            /(h|H)ack(\s|)(n|N)ight/g,
+            (_match, h, space, n) => {
+              const w = h === "h" ? "w" : "W";
+              return `${w}ack${space}${n}ight`;
+            }
+          );
+          buffer = buffer.replace(
             /\/_next\/image/g,
             "https://hackclub.com/_next/image"
           );
